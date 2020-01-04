@@ -1,7 +1,7 @@
 # Python-Projects
 My first repository. I created this as a place to work on projects in Python. 
 
-1.) This is my first edit. I cloned the repo to my local machine so that I could make
-	an edit and subsequently push it back to the repo on GitHub.
-	I used VIM to make this edit.
+Record of Changes
 
+12/22/19 - Created first change on local machine. Used VIM to perform edit and command line interface to push to the repository
+1/4/2020 - Added project Client_Manager.
