@@ -46,17 +46,24 @@ while True:
         new_client = client(firstname, lastname, address, phone, email)
         client_list.append(new_client)
     elif current_command == "list":
-        for client in client_list:
-            print(client.firstname)
+        if len(client_list) != 0:
+            for client in client_list:
+                print(client.firstname)
+        elif len(client_list) == 0:
+            print("\nThere are no clients in the database.\n")
     elif current_command == 'delete':
-        answer = input("Enter the first and last name of the client you wish to delete: ").split()
+        clientfound = False
+        answer = input("Enter the first and last name of the client you wish to delete: ").lower().split()
         for client in client_list:
-            if (client.firstname == answer[0]) and (client.lastname == answer[1]):
-                print(client.firstname + " " + client.lastname)
-                answer = input("Is this the client you wish to delete? (y/n)").lower()
+            if (client.firstname.lower() == answer[0]) and (client.lastname.lower() == answer[1]):
+                print(" \n" + client.firstname + " " + client.lastname)
+                answer = input("\n Is this the client you wish to delete? (y/n)  ").lower()
                 if answer == "y":
+                    clientfound = True
                     client_list.remove(client)
-                el
+                    print("\n" + client.firstname + " " + client.lastname + " was successfully removed. \n")
+        if clientfound == False:
+            print("\nClient not found. \n")
 
     elif current_command == 'modify':
         modify()
