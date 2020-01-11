@@ -62,11 +62,42 @@ while True:
                     clientfound = True
                     client_list.remove(client)
                     print("\n" + client.firstname + " " + client.lastname + " was successfully removed. \n")
-        if clientfound == False:
+        if not clientfound:
             print("\nClient not found. \n")
 
     elif current_command == 'modify':
-        modify()
+        clientfound = False
+        answer = input("Enter the first and last name of the client you wish to modify: ").lower().split()
+        for client in client_list:
+            if (client.firstname.lower() == answer[0]) and (client.lastname.lower() == answer[1]):
+                print(" \n" + client.firstname + " " + client.lastname)
+                answer = input("\n Is this the client you wish to modify (y/n)  ").lower()
+                if answer == "y":
+                    clientfound = True
+                    answer = input("What would you like to edit? \n Your choices are: First Name, Last Name, Address, Phone Number, Email").lower()
+
+
+                    if answer == "first name":
+                        change = input("Enter new first name: ")
+                        client.firstname = change
+                    elif answer == "last name":
+                        change = input("Enter new last name: ")
+                        client.lastname = change
+                    elif answer == "address":
+                        change = input("Enter new address: ")
+                        client.address = change
+                    elif answer == "phone number":
+                        change = input("Enter new phone number: " )
+                        client.phone = change
+                    elif answer == "email":
+                        change = input("Enter new email: ")
+                        client.email = change
+
+
+        if clientfound == False:
+            print("\nClient not found. \n")
+
+
     elif current_command == 'menu':
         menu()
     elif current_command == "exit":
